@@ -12,14 +12,14 @@ jobs:
     steps:
       - checkout
       - run:
-        command: sudo apt-get install -y libxss1
-        name: install missing Chrome dep
+          command: sudo apt-get install -y libxss1
+          name: install missing Chrome dep
       - node/install-packages:
           pkg-manager: yarn
 
       - run:
-        command: yarn snapshot
-        name: Run VR
+          command: yarn snapshot
+          name: Run VR
 
 workflows:
   test:
