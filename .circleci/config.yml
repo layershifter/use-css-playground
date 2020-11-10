@@ -7,7 +7,7 @@ jobs:
   test:
     executor:
       name: node/default
-      tag: 'lts-browsers'
+      tag: '15.1-browsers'
 
     steps:
       - checkout
