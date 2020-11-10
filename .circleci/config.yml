@@ -1,0 +1,27 @@
+version: 2.1
+
+docker:
+  - image: circleci/node:12
+
+jobs:
+  bootstrap:
+    steps:
+      - checkout
+      - restore_cache:
+        name: Restore Yarn Package Cache
+        keys:
+          - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+        name: Install Dependencies
+        command: yarn install --immutable
+      - save_cache:
+        name: Save Yarn Package Cache
+        key: yarn-packages-{{ checksum "yarn.lock" }}
+        paths:
+          - ~/.cache/yarn
+
+  test:
+    steps:
+      - run:
+        name: VR tests
+        command: yarn snapshot
