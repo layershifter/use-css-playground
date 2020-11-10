@@ -11,6 +11,7 @@ jobs:
 
     steps:
       - checkout
+      - sudo apt-get install -y libxss1
       - node/install-packages:
           pkg-manager: yarn
 
