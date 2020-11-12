@@ -29,7 +29,7 @@ export const Hover = () => {
   return (
     <Button
       className={className}
-      content="An override for color & :hover preudo"
+      content="An override for color & :hover pseudo"
     />
   );
 };
